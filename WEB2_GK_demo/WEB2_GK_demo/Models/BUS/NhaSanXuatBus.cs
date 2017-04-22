@@ -14,10 +14,12 @@ namespace WEB2_GK_demo.Models.BUS
             return sql.Query<NhaSanXuat>("select* from NhaSanXuat where TinhTrang = 0");
 
         }
-        public static IEnumerable<SanPham> ChiTiet(String id)
+        public static IEnumerable<SanPham> ChiTietNSX(String id)
         {
             var sql = new MobileShopConnectionDB();
-            return sql.Query<SanPham>("select* from SanPham where MaNhaSX = '"+id+"'");
+            return sql.Query<SanPham>("select * from SanPham where MaNhaSX = '" + id + "'");
         }
+
+
     }
 }

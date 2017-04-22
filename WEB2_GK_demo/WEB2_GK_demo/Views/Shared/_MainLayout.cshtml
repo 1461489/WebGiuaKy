@@ -12,7 +12,7 @@
     <meta name="author" content="http://www.365bootstrap.com">
 
     <title>Mobile Shop</title>
-    
+
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="~/css/css/bootstrap.min.css" type="text/css">
 
@@ -75,40 +75,13 @@
             </div>
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home","Index","Home")</li>
-               
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+
                     <li> @Html.ActionLink("Sản Phẩm", "Index", "Shop")</li>
-                        
-                  @Html.Partial("_NhaSanXuat", WEB2_GK_demo.Models.BUS.NhaSanXuatBus.DanhSach())
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Loại Sản Phẩm</a>
-                        <div class="dropdown-menu" style="margin-left: -203.625px;">
-                            <div class="dropdown-inner">
-                                <ul class="list-unstyled">
-                                    <li><a href="category.html">Iphone</a></li>
-                                    <li><a href="category.html">Samsung</a></li>
-                                    <li><a href="category.html">Nokia</a></li>
-                                    <li><a href="category.html">Lenovo</a></li>
-                                    <li><a href="category.html">Google</a></li>
-                                </ul>
-                                <ul class="list-unstyled">
-                                    <li><a href="category.html">Nexus</a></li>
-                                    <li><a href="category.html">Dell</a></li>
-                                    <li><a href="category.html">Oppo</a></li>
-                                    <li><a href="category.html">Blackberry</a></li>
-                                    <li><a href="category.html">HTC</a></li>
-                                </ul>
-                                <ul class="list-unstyled">
-                                    <li><a href="category.html">LG</a></li>
-                                    <li><a href="category.html">Q-Mobiles</a></li>
-                                    <li><a href="category.html">Sony</a></li>
-                                    <li><a href="category.html">Wiko</a></li>
-                                    <li><a href="category.html">T&T</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </li>
-                    <li><a href="category.html">Software</a></li>
+
+                    <li>  @Html.Partial("_NhaSanXuat", WEB2_GK_demo.Models.BUS.NhaSanXuatBus.DanhSach())</li>
+                    <li>  @Html.Partial("_PhanLoai", WEB2_GK_demo.Models.BUS.PhanLoaiBus.DanhSach()) </li>
+                    @*<li><a href="category.html">Software</a></li>*@
                 </ul>
             </div>
         </div>
@@ -117,8 +90,7 @@
     <!--///////////////////HomePage///////////////////////-->
     <!--//////////////////////////////////////////////////-->
     @RenderBody()
-   @{ Html.RenderPartial("_Footer");}
+    @{ Html.RenderPartial("_Footer");}
 </body>
 
 </html>
-

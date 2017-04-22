@@ -8,14 +8,15 @@ using WEB2_GK_demo.Models.BUS;
 
 namespace WEB2_GK_demo.Controllers
 {
-    public class NhaSanXuatController : Controller
+    public class PhanLoaiController : Controller
     {
-        // GET: NhaSanXuat
+        // GET: Phanloai
         public ActionResult Index(String id, int PagedList = 1, int size = 6)
         {
-            var sql = NhaSanXuatBus.ChiTietNSX(id).ToPagedList(PagedList, size);
+            var sql = PhanLoaiBus.ChiTietPL(id).ToPagedList(PagedList, size);
             return View(sql);
 
         }
     }
+
 }

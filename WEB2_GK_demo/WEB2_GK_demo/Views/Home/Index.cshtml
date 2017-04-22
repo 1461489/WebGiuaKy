@@ -75,14 +75,14 @@
                     {
                         <div class="col-lg-4 col-md-4 col-xs-12">
                             <div class="product">
-                                <div class="image"><a href="@Url.Action("Details", new { id = @item.MaSP})"><img style="max-width:220px;max-height:220px" src="~/css/images/@item.Hinh1" /></a></div>
+                                <div class="image"><a href="@Url.Action("Details","Shop", new { id = @item.MaSP})"><img style="max-width:220px;max-height:220px" src="~/css/images/@item.Hinh1" /></a></div>
                                 <div class="buttons">
                                     <a class="btn cart" href="#"><span class="glyphicon glyphicon-shopping-cart"></span></a>
                                     <a class="btn wishlist" href="#"><span class="glyphicon glyphicon-heart"></span></a>
                                     <a class="btn compare" href="#"><span class="glyphicon glyphicon-transfer"></span></a>
                                 </div>
                                 <div class="caption">
-                                    <div class="name"><h3><a href="@Url.Action("Details", new { id = @item.MaSP})">@item.TenSP</a></h3></div>
+                                    <div class="name"><h3><a href="@Url.Action("Details","Shop", new { id = @item.MaSP})">@item.TenSP</a></h3></div>
                                     <div class="price"><ins>@string.Format("{0:#0,0 VNĐ}", @item.Gia)</ins></div>
                                     <div class="rating"><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star-empty"></span></div>
                                 </div>
@@ -107,74 +107,6 @@
                 </div>
                 <div class="col-sm-6">
                     <img src="~/css/images/sub-banner5.png" />
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="heading"><h2>FEATURED PRODUCTS</h2></div>
-                <div class="products">
-
-                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                        <div class="product">
-                            <div class="image"><a href="product.html"><img src="~/css/images/ip3.jpg" /></a></div>
-                            <div class="buttons">
-                                <a class="btn cart" href="#"><span class="glyphicon glyphicon-shopping-cart"></span></a>
-                                <a class="btn wishlist" href="#"><span class="glyphicon glyphicon-heart"></span></a>
-                                <a class="btn compare" href="#"><span class="glyphicon glyphicon-transfer"></span></a>
-                            </div>
-                            <div class="caption">
-                                <div class="name"><h3><a href="product.html">Điện thoại iPhone 6s 128GB</a></h3></div>
-                                <div class="price">16000000 VND</div>
-                                <div class="rating"><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star-empty"></span></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                        <div class="product">
-                            <div class="image"><a href="product.html"><img src="~/css/images/op5.jpg" /></a></div>
-                            <div class="buttons">
-                                <a class="btn cart" href="#"><span class="glyphicon glyphicon-shopping-cart"></span></a>
-                                <a class="btn wishlist" href="#"><span class="glyphicon glyphicon-heart"></span></a>
-                                <a class="btn compare" href="#"><span class="glyphicon glyphicon-transfer"></span></a>
-                            </div>
-                            <div class="caption">
-                                <div class="name"><h3><a href="product.html">Điện thoại OPPO F1s [17] 64GB</a></h3></div>
-                                <div class="price">6000000 VND</div>
-                                <div class="rating"><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star-empty"></span><span class="glyphicon glyphicon-star-empty"></span></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                        <div class="product">
-                            <div class="image"><a href="product.html"><img src="~/css/images/ss1.jpg" /></a></div>
-                            <div class="buttons">
-                                <a class="btn cart" href="#"><span class="glyphicon glyphicon-shopping-cart"></span></a>
-                                <a class="btn wishlist" href="#"><span class="glyphicon glyphicon-heart"></span></a>
-                                <a class="btn compare" href="#"><span class="glyphicon glyphicon-transfer"></span></a>
-                            </div>
-                            <div class="caption">
-                                <div class="name"><h3><a href="product.html">Điện thoại Samsung Galaxy J7 Prime</a></h3></div>
-                                <div class="price">26000000 VND</div>
-                                <div class="rating"><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star-empty"></span><span class="glyphicon glyphicon-star-empty"></span></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                        <div class="product">
-                            <div class="image"><a href="product.html"><img src="~/css/images/as2.jpg" /></a></div>
-                            <div class="buttons">
-                                <a class="btn cart" href="#"><span class="glyphicon glyphicon-shopping-cart"></span></a>
-                                <a class="btn wishlist" href="#"><span class="glyphicon glyphicon-heart"></span></a>
-                                <a class="btn compare" href="#"><span class="glyphicon glyphicon-transfer"></span></a>
-                            </div>
-                            <div class="caption">
-                                <div class="name"><h3><a href="product.html">Điện thoại Asus Zenfone 3 ZE552KL</a></h3></div>
-                                <div class="price">9000000 VND</div>
-                                <div class="rating"><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span></div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>

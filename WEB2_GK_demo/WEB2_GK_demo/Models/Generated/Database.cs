@@ -365,11 +365,9 @@ namespace MobileShopConnection
 
 		[Column] public string ThemSP { get; set; }
 
-        internal object ToPageList()
-        {
-            throw new NotImplementedException();
-        }
-    }
+
+
+	}
 
     
 
