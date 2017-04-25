@@ -1,8 +1,10 @@
-﻿using System;
+﻿using MobileShopConnection;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using WEB2_GK_demo.Models.BUS;
 
 namespace WEB2_GK_demo.Areas.Admin.Controllers
 {
@@ -11,7 +13,8 @@ namespace WEB2_GK_demo.Areas.Admin.Controllers
         // GET: Admin/AdminLSP
         public ActionResult Index()
         {
-            return View();
+            var sql = PhanLoaiBus.DanhSanhLSPAdmin();
+            return View(sql);
         }
 
         // GET: Admin/AdminLSP/Details/5
@@ -28,12 +31,12 @@ namespace WEB2_GK_demo.Areas.Admin.Controllers
 
         // POST: Admin/AdminLSP/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(LoaiSP LSP)
         {
             try
             {
                 // TODO: Add insert logic here
-
+                PhanLoaiBus.ThemLSP(LSP);
                 return RedirectToAction("Index");
             }
             catch
@@ -43,9 +46,10 @@ namespace WEB2_GK_demo.Areas.Admin.Controllers
         }
 
         // GET: Admin/AdminLSP/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit(String id)
         {
-            return View();
+            var sql = PhanLoaiBus.EditLSP(id);
+            return View(sql);
         }
 
         // POST: Admin/AdminLSP/Edit/5

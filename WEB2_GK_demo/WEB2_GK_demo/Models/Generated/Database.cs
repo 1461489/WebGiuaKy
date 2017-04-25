@@ -367,6 +367,12 @@ namespace MobileShopConnection
 
 
 
+
+
+		[Column] public string MoTa { get; set; }
+
+
+
 	}
 
     

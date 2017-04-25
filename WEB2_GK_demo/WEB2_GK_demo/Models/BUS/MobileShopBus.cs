@@ -19,6 +19,17 @@ namespace WEB2_GK_demo.Models.BUS
             var sql = new MobileShopConnectionDB();
             return sql.SingleOrDefault<SanPham>("select * from SanPham where MaSP = @0",id);
         }
-     
+        public static IEnumerable<SanPham> DanhSachSP()
+        {
+            var sql = new MobileShopConnectionDB();
+            return sql.Query<SanPham>("select* from SanPham ");
+
+        }
+        public static void ThemSP(SanPham sp)
+        {
+            var sql = new MobileShopConnectionDB();
+            sql.Insert(sp);
+
+        }
     }
 }

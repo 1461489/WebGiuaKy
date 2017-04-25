@@ -1,17 +1,22 @@
-﻿using System;
+﻿using MobileShopConnection;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using WEB2_GK_demo.Models.BUS;
 
 namespace WEB2_GK_demo.Areas.Admin.Controllers
 {
     public class AdminNSXController : Controller
     {
+        public object NXS { get; private set; }
+
         // GET: Admin/AdminNSX
         public ActionResult Index()
         {
-            return View();
+            var sql = NhaSanXuatBus.DanhSanhNSXAdmin();
+            return View(sql);
         }
 
         // GET: Admin/AdminNSX/Details/5
@@ -28,12 +33,12 @@ namespace WEB2_GK_demo.Areas.Admin.Controllers
 
         // POST: Admin/AdminNSX/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(NhaSanXuat NSX)
         {
             try
             {
                 // TODO: Add insert logic here
-
+                NhaSanXuatBus.ThemNSX(NSX);
                 return RedirectToAction("Index");
             }
             catch
@@ -43,19 +48,19 @@ namespace WEB2_GK_demo.Areas.Admin.Controllers
         }
 
         // GET: Admin/AdminNSX/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit(String id)
         {
-            return View();
+            return View(NhaSanXuatBus.EditNSX(id));
         }
 
         // POST: Admin/AdminNSX/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(String id , NhaSanXuat NSX)
         {
             try
             {
                 // TODO: Add update logic here
-
+                NhaSanXuatBus.UpdateNSX(id, NSX);
                 return RedirectToAction("Index");
             }
             catch
@@ -64,7 +69,28 @@ namespace WEB2_GK_demo.Areas.Admin.Controllers
             }
         }
 
+        //xóa tạm thời
+        public ActionResult Remove(String id)
+        {
+            return View(NhaSanXuatBus.EditNSX(id));
+        }
+        [HttpPost]
+        public ActionResult Remove(String id,NhaSanXuat NSX)
+        {
+            try
+            {
+                // TODO: Add delete logic here
+                NSX.TinhTrang = "1";
+                NhaSanXuatBus.UpdateNSX(id, NSX);
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View();
+            }
+        }
         // GET: Admin/AdminNSX/Delete/5
+
         public ActionResult Delete(int id)
         {
             return View();
@@ -77,7 +103,7 @@ namespace WEB2_GK_demo.Areas.Admin.Controllers
             try
             {
                 // TODO: Add delete logic here
-
+             
                 return RedirectToAction("Index");
             }
             catch

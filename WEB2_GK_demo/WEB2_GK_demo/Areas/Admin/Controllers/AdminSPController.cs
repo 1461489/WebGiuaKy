@@ -1,8 +1,10 @@
-﻿using System;
+﻿using MobileShopConnection;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using WEB2_GK_demo.Models.BUS;
 
 namespace WEB2_GK_demo.Areas.Admin.Controllers
 {
@@ -11,7 +13,8 @@ namespace WEB2_GK_demo.Areas.Admin.Controllers
         // GET: Admin/AdminSP
         public ActionResult Index()
         {
-            return View();
+          
+            return View(MobileShopBus.DanhSachSP());
         }
 
         // GET: Admin/AdminSP/Details/5
@@ -27,19 +30,49 @@ namespace WEB2_GK_demo.Areas.Admin.Controllers
         }
 
         // POST: Admin/AdminSP/Create
-        [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        [HttpPost, ValidateInput(false)]
+        public ActionResult Create(SanPham sp)
+        //{
+        //    try
+        //    {
+        //        // TODO: Add insert logic here
+        //        MobileShopBus.ThemSP(sp);
+
+        //        return RedirectToAction("Index");
+        //    }
+        //    catch
+        //    {
+        //        return View();
+        //    }
+        //}
         {
-            try
             {
                 // TODO: Add insert logic here
+                //Hàm thêm
+                if (HttpContext.Request.Files.Count > 0) { }
 
-                return RedirectToAction("Index");
+                var hpf = HttpContext.Request.Files[0];
+                if (hpf.ContentLength > 0)
+                {
+                    string fileName = Guid.NewGuid().ToString();
+
+                    string fullPathWithFileName = "/css/img/products/" + fileName + ".jpg";
+                    hpf.SaveAs(Server.MapPath(fullPathWithFileName));
+                    sp.HinhChinh = fullPathWithFileName;
+                }
             }
-            catch
-            {
-                return View();
-            }
+            MobileShopBus.ThemSP(sp);
+            return RedirectToAction("Index");
+            //try
+            //{
+            //    // TODO: Add insert logic here
+            //    SanPhamBus.ThemSP(sp);
+            //    return RedirectToAction("Index");
+            //}
+            //catch
+            //{
+            //    return View();
+            //}
         }
 
         // GET: Admin/AdminSP/Edit/5
